@@ -55,4 +55,4 @@ Run the standard terraform commands
 
     terraform apply
 
-Check your local minikube cluster for example with k9s and see the various pods created. you can even [portforward argo-cd admin UI](https://argo-cd.readthedocs.io/en/stable/getting_started/#port-forwarding) and sync to get all the example apps installed
+Check your local minikube cluster with kubectl or a tool like k9s and see the various pods created. you can even [portforward argo-cd admin UI](https://argo-cd.readthedocs.io/en/stable/getting_started/#port-forwarding) and sync to get all the example apps installed. You can get the argocd admin UI password [here](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
