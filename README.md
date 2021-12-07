@@ -1,18 +1,58 @@
 # GitOps Bootstrap K8s with Terraform 🚀
 
-## Quickstart
+## Dependencies
+
+[Docker](https://www.docker.com/get-started)
+
+The following may be installed with [brew](https://brew.sh/). Run `brew bundle`
+
+Required:
+
+[Minikube](https://minikube.sigs.k8s.io/docs/start/)
+[Terraform](https://www.terraform.io/downloads.html)
+[Kubernetes](https://kubernetes.io/docs/tasks/tools/)
+[Helm](https://helm.sh/docs/intro/install/)
+
+Optional:
+
+[doctl](https://docs.digitalocean.com/reference/doctl/)
+[k9s](https://k9scli.io/)
+
+
+
+## Dev Quickstart
+
+Start minikube
+
+    minikube start
+
+Set up Terraform environment variables
+Using the workspace named `dev` here makes sure the terraform runs against a local minikube cluster
 
     export TF_WORKSPACE=dev
-    export TF_CLI_ARGS_init="-backend-config='token=<TF CLOUD TOKEN>' -backend-config='organization=<TF CLOUD ORG NAME>'"
+
+Force Terraform to not use remote execution. We only care about terraform cloud state management
+
     export TF_FORCE_LOCAL_BACKEND=1
+
+The backend here is `remote` using terraform cloud. sign up for a free account, create an organization, skip creating a workspace and create a user API token.
+
+    export TF_CLI_ARGS_init="-backend-config='token=<TF CLOUD TOKEN>' -backend-config='organization=<TF CLOUD ORG NAME>'"
+
+Create a digitalocean access token or make one up if just local testing
+    
     export DIGITALOCEAN_ACCESS_TOKEN=<DO API TOKEN>
+
+Now create a new terraform workspace
 
     terraform workspace new $TF_WORKSPACE
 
-    minikube start
+Run the standard terraform commands
 
     terraform init
 
     terraform plan
 
     terraform apply
+
+Check your local minikube cluster for example with k9s and see the various pods created. you can even [portforward argo-cd admin UI](https://argo-cd.readthedocs.io/en/stable/getting_started/#port-forwarding) and sync to get all the example apps installed

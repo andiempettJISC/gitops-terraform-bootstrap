@@ -1,2 +1,7 @@
 brew "doctl"
 brew "k9s"
+brew "kubectl"
+brew "minikube"
+brew "helm"
+tap "hashicorp/tap"
+brew "hashicorp/tap/terraform"
