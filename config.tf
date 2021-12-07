@@ -1,4 +1,11 @@
 terraform {
+  backend "remote" {
+    workspaces {
+      prefix = "gitops-bootstrap-"
+    }
+
+  }
+
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
@@ -10,12 +17,8 @@ terraform {
   }
 }
 
-variable "do_token" {
-  description = "The Digital Ocean Personal Access Token for the user"
-  sensitive   = true
-  type        = string
+provider "digitalocean" {
 }
 
-provider "digitalocean" {
-  token = var.do_token
+provider "time" {
 }
