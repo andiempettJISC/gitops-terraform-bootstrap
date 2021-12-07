@@ -1,5 +1,7 @@
 # GitOps Bootstrap K8s with Terraform 🚀
 
+Using a simple managed Kubernetes cluster on Digitalocean you can bootstrap it with Argo CD and an inital [app-of-apps](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) seed [application](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/). then all your applications from a git repo are automagically pulled onto your cluster. After this initial cluster bootstrapping argocd handle the deployment of all your kubernetes resources
+
 ## Dependencies
 
 [Docker](https://www.docker.com/get-started)
