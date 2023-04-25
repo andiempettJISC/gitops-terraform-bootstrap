@@ -1,10 +1,11 @@
 terraform {
-  backend "remote" {
-    workspaces {
-      prefix = "gitops-bootstrap-"
-    }
+  # if using terraform cloud
+  # backend "remote" {
+  #   workspaces {
+  #     prefix = "gitops-bootstrap-"
+  #   }
 
-  }
+  # }
 
   required_providers {
     digitalocean = {
